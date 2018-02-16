@@ -1,0 +1,27 @@
+<!--pages/chooseLocation/chooseLocation.wxml-->
+<view class="container">
+ <view class='item' data-chooseLocationId="gps" bindtap='toIndex'>
+  <view class='left'>
+    <text class='time'>{{weather.last_update}}</text>
+    <text class='location'>{{weather.name}}</text>
+  </view>
+  <view class='right'>
+    <text>{{weather.temperature}}°</text>    
+    <image src="../../images/weather/{{weather.code}}.png" mode="aspectFit"></image> 
+  </view>
+ </view>
+ <view class='item' wx:for="{{list}}" wx:key="*this" wx:for-item='i' id="{{index}}" data-chooselocationid="{{i.location.id}}" bindtap='toIndex' bindlongpress='delLocation'>
+  <view class='left'>
+    <text class='time'>{{i.last_update}}</text>
+    <text class='location'>{{i.location.name}}</text>
+  </view>
+  <view class='right'>
+    <text>{{i.now.temperature}}°</text>    
+    <image src="../../images/weather/{{i.now.code}}.png" mode="aspectFit"></image> 
+  </view>
+ </view>
+ <view class='bot'>
+  <text class='tips'>长按删除城市</text>
+  <view class='add' bindtap='addLocation'><image src="../../images/other/add.png" mode="aspectFit"></image></view>
+ </view>
+</view>

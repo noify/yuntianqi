@@ -1,0 +1,104 @@
+/**index.wxss**/
+page{
+  background: #f2f2f2;
+}
+.now{
+  display: flex;
+  background: #459df5;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+  padding: 10rpx 30rpx;
+  padding-top: 40px; 
+  box-sizing: border-box;
+}
+.now >image{
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  left: 50rpx;
+  top: 30rpx;
+}
+.now-text{
+  text-align: center;
+  font-size: 18px;
+  padding-bottom: 10rpx;
+  text-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
+}
+.temperature{
+  font-size: 150rpx;
+  font-weight: bold;
+  padding-bottom: 60rpx;
+  text-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
+}
+.now .bot{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding-bottom: 10rpx; 
+}
+.last_update{
+}
+.wind{
+}
+.chooseLocation{
+}
+.daily{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0 15rpx 0;
+  border-top: 1px solid #ddd;
+}
+.daily-now{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 5rpx 0;
+}
+.daily-text{
+  position: relative;
+  padding-left: 25px;
+}
+.daily-text image{
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+.suggestion{
+  width: 95%;
+  margin: 25rpx 5rpx 0 5rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.suggestion-item{
+  background: #fff;
+  display: flex;
+  width: 31.3333%;
+  margin: 0 1% 10rpx 1%;
+  flex-direction: column;
+  align-items: center;
+  height: 190rpx;
+  border-radius: 2px;
+  padding: 30rpx 0;
+  box-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
+}
+.suggestion-item image{
+  width: 120rpx;
+}
+.suggestion-name{
+  padding-top: 20rpx; 
+  font-size: 12px;
+  color: #ccc;
+}
+.suggestion-brief{
+  padding-top: 10rpx;
+  font-size: 18px;
+  font-weight: bold;
+}

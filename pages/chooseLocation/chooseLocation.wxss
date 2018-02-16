@@ -1,0 +1,66 @@
+/* pages/chooseLocation/chooseLocation.wxss */
+page{
+  background: #459df5;
+}
+.container{
+  padding: 30rpx;
+}
+.item{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 15px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+  background: white;
+  border-radius: 3px;
+  margin-bottom: 15px; 
+}
+.left{
+  display: flex;
+  flex-direction: column;
+}
+.time{
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+.location{
+  font-size: 21px;
+}
+.item image{
+  width: 36px;
+  height: 36px;
+  margin-left: 15px;
+  border-radius: 50%;
+  padding: 7px;
+  background: #459df5;
+}
+.right{
+  display: flex;
+}
+.right text{
+  font-size:40px;
+  font-weight: bolder;
+}
+.bot{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.tips{
+  font-size: 12px;
+  color: #ccc;
+}
+.add{
+  position: fixed;
+  z-index: 99;
+  right: 20px;
+  bottom: 20px;
+}
+.add image{
+  height: 50px;
+  width: 50px;
+  background: #459df5;
+  border-radius: 50%;
+}

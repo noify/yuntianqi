@@ -1,0 +1,147 @@
+/* pages/share/share.wxss */
+page{
+  background: #f2f2f2;
+}
+.top{
+  display: flex;
+  flex-direction: row;
+  background: #459df5;
+  color: white;
+  padding: 50rpx 0;
+}
+.top .ta, .top .vs, .top .me{
+  width: 250rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.top image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.top .vs{
+  font-size: 80rpx;
+  font-weight: bolder;
+  color: #fcbd2a;
+}
+.top .ta text,.top .me text{
+  margin-top: 20rpx;
+  font-size: 25rpx;
+}
+.cen{
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 0 20rpx 0;
+  width: 750rpx;
+  background: white;
+}
+.item{
+  width:750rpx;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.cen .item .ta,.cen .item .me{
+  width: 305rpx;
+  height: 50rpx;
+}
+.cen .item .vs{
+  position: absolute;
+  width: 110rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: white;
+  left: 50%;
+  margin-left: -55rpx;
+  text-align: center;
+  border-radius: 20px;
+  padding: 5rpx 0;
+  font-size: 30rpx;
+  z-index: 99;
+}
+.cen .item .ta text,.cen .item .me text{
+  position: absolute;
+  color: #7b7b7b;
+  font-size: 30rpx;
+  top: 0;
+}
+.cen .item .me text{
+  right: 30rpx;
+}
+.cen .item .ta .pro,.cen .item .me .pro,.cen .item .ta .chan,.cen .item .me .chan{
+  width: 100%;
+  background: #f1f1f1;
+  height: 20rpx;
+  margin: 15rpx 0;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.cen .item .ta .pro{
+  justify-content: flex-end;
+}
+.cen .item .ta .chan{
+  width: 40%;
+}
+.cen .item .me .chan{
+  width: 70%;
+}
+.cen .item.temperature  .vs{
+  color: #66c640;
+  border: 1px solid #66c640;
+}
+.cen .item.temperature .me .chan,.cen .item.temperature .ta .chan{
+  background: #66c640;
+}
+.cen .item.speed  .vs{
+  color: #c594ff;
+  border: 1px solid #c594ff;
+}
+.cen .item.speed .me .chan,.cen .item.speed .ta .chan{
+  background: #c594ff;
+}
+.cen .item.precip  .vs{
+  color: #fba093;
+  border: 1px solid #fba093;
+}
+.cen .item.precip .me .chan,.cen .item.precip .ta .chan{
+  background: #fba093;
+}
+.suggestion{
+  width: 100%;
+  padding: 25rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: #f2f2f2;
+  box-sizing: border-box;
+}
+.suggestion-item{
+  background: #fff;
+  display: flex;
+  width: 31.3333%;
+  margin: 0 1% 10rpx 1%;
+  flex-direction: column;
+  align-items: center;
+  height: 190rpx;
+  border-radius: 2px;
+  padding: 30rpx 0;
+  box-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
+}
+.suggestion-item image{
+  width: 120rpx;
+}
+.suggestion-name{
+  padding-top: 20rpx; 
+  font-size: 12px;
+  color: #ccc;
+  }
+.suggestion-brief{
+  padding-top: 10rpx;
+  font-size: 18px;
+  font-weight: bold;
+}

@@ -6,6 +6,7 @@
     <text class="temperature">{{weather.temperature}}°</text>
     <!-- <text class="last_update">最后更新时间：{{weather.last_update}}</text> -->
     <view class='bot'>
+      <button class="share" open-type='share'>分享天气</button>
       <text class="wind">{{weather.wind_scale}}级{{weather.wind_direction}}风</text>
       <text class='chooseLocation' bindtap='chooseLocation'>切换城市</text>
     </view>

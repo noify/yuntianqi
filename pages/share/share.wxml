@@ -1,0 +1,79 @@
+<!--pages/share/share.wxml-->
+<view class='top'>
+  <view class='ta'>
+    <image src="../../images/weather/{{weatherTa.code_day}}.png" mode="aspectFit"></image>
+    <text>TA({{weatherTa.name}})</text>
+  </view>
+  <view class='vs'>VS</view>
+  <view class='me'>
+    <image src='{{userInfo.avatarUrl}}'></image>
+    <text>{{userInfo.nickName}}({{weather.name}})</text>
+  </view>
+</view>
+<view class='cen'>
+  <view class='item temperature'>
+    <view class='ta'>
+      <text>{{weatherTa.high}}°</text>
+      <view class='pro'><view class='chan' style='width: {{highTa}}%'></view></view>
+    </view>
+    <view class='vs'>最高温</view>
+    <view class='me'>
+      <text>{{weather.high}}°</text>
+      <view class='pro'><view class='chan' style='width: {{high}}%'></view></view>
+    </view>
+  </view>
+  <view class='item precip'>
+    <view class='ta'>
+      <text>{{weatherTa.low}}°</text>
+      <view class='pro'><view class='chan' style='width: {{lowTa}}%'></view></view>
+    </view>
+    <view class='vs'>最低温</view>
+    <view class='me'>
+      <text>{{weather.low}}°</text>
+      <view class='pro'><view class='chan' style='width: {{low}}%'></view></view>
+    </view>
+  </view>
+  <view class='item speed'>
+    <view class='ta'>
+      <text>{{weatherTa.wind_speed}}({{weatherTa.wind_direction}})</text>
+      <view class='pro'><view class='chan' style='width: {{speedTa}}%'></view></view>
+    </view>
+    <view class='vs'>风速</view>
+    <view class='me'>
+      <text>{{weather.wind_speed}}({{weather.wind_direction}})</text>
+      <view class='pro'><view class='chan' style='width: {{speed}}%'></view></view>
+    </view>
+  </view>
+</view>
+<view class="suggestion">
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/car_washing.png" mode="aspectFit"></image>
+      <text class="suggestion-name">洗车指数</text>
+      <text class="suggestion-brief">{{weather.suggestion.car_washing.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/dressing.png" mode="aspectFit"></image>
+      <text class="suggestion-name">穿衣指数</text>
+      <text class="suggestion-brief">{{weather.suggestion.dressing.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/flu.png" mode="aspectFit"></image>
+      <text class="suggestion-name">感冒指数</text>
+      <text class="suggestion-brief">{{weather.suggestion.flu.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/sport.png" mode="aspectFit"></image>
+      <text class="suggestion-name">运动指数</text>
+      <text class="suggestion-brief">{{weather.suggestion.sport.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/travel.png" mode="aspectFit"></image>
+      <text class="suggestion-name">旅游指数</text>
+      <text class="suggestion-brief">{{weather.suggestion.travel.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/uv.png" mode="aspectFit"></image>
+      <text class="suggestion-name">紫外线指数</text>
+      <text class="suggestion-brief">{{weather.suggestion.uv.brief}}</text>
+    </view>
+  </view>

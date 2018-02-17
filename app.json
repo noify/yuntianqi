@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/chooseLocation/chooseLocation"
+    "pages/chooseLocation/chooseLocation",
+    "pages/share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",

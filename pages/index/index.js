@@ -41,6 +41,7 @@ Page({
           daily: daily, // 逐日天气预报
           suggestion: life.suggestion // 生活指数 
         }
+        console.log(JSON.stringify(weather))
         if (clazz == 'gps') {
           weather.id = 'gps'
           wx.setStorage({
@@ -80,6 +81,9 @@ Page({
     })
   },
   onLoad (options) {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
     wx.setTopBarText({
       text: 'hello, world!'
     })
@@ -130,7 +134,7 @@ Page({
       },
       fail(res) {
         _this.getWeather('ip')
-      }
+      } 
     })
   },
   onShareAppMessage (res){
@@ -139,7 +143,7 @@ Page({
     let location = _this.data.weather.id
     return {
       title: `${name}天气`,
-      path: `/pages/index/index?type=share&location=${location}`,
+      path: `/pages/share/share?cid=${location}`,
       success (res) {
         // 转发成功
       },

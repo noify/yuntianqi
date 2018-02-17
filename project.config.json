@@ -33,6 +33,14 @@
 					"name": "切换城市",
 					"pathName": "pages/chooseLocation/chooseLocation",
 					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "分享",
+					"pathName": "pages/share/share",
+					"query": "cid=北京",
+					"scene": "1036",
+					"referrerInfo": {}
 				}
 			]
 		}

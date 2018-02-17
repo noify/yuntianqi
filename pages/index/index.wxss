@@ -42,8 +42,22 @@ page{
 .last_update{
 }
 .wind{
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+.share{
+  display: line;
+  padding: 10rpx;
+  background: #459df5;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  border: none;
+  color: white;
+  margin: 0;
 }
 .chooseLocation{
+  font-size: 30rpx;
+  line-height: 30rpx;
 }
 .daily{
   width:100%;

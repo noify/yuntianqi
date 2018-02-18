@@ -22,14 +22,13 @@ App({
     })
   },
   onShow (e) {
-    console.log(e)
-    if ((e.scene != 1007 || e.scene != 1008) && e.path == 'pages/share/share'){
+    if (!(e.scene == 1007 || e.scene == 1008) && e.path == 'pages/share/share'){
       try{
         // 需要寻找设置主页的办法，打开分享页以后，无法回到主页
         // 或者特定场景值下，遇到分享页，直接关闭。
-        // wx.redirectTo({
-        //   url: '/pages/index/index'
-        // })
+        wx.redirectTo({
+          url: '/pages/index/index'
+        })
       }catch (e) {
 
       }

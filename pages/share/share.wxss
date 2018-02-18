@@ -5,29 +5,55 @@ page{
 .top{
   display: flex;
   flex-direction: row;
-  background: #459df5;
+  /* background: #459df5; */
   color: white;
   padding: 50rpx 0;
+  width: 750rpx;
+  position: relative;
 }
 .top .ta, .top .vs, .top .me{
   width: 250rpx;
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
-.top image{
+.top .ta image,.top .me image{
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
+}
+.top .blur-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(14px);
+  background: #459df5;
+}
+.top .bg-mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: hsla(0,0%,100%,.4);  */
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.top .ta image{
+  border-radius: 0;
 }
 .top .vs{
   font-size: 80rpx;
   font-weight: bolder;
   color: #fcbd2a;
+  text-shadow: 0px 1px 2px rgba(252, 189, 42,0.3);
 }
 .top .ta text,.top .me text{
   margin-top: 20rpx;
   font-size: 25rpx;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
 }
 .cen{
   display: flex;

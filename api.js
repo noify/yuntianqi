@@ -1,3 +1,4 @@
+import util from './utils/util.js'
 let yun = {}
 let weather = [
   { id: 0, name: '晴', englishName: 'Sunny', icon: '', },
@@ -93,6 +94,59 @@ let life = function (location = 'ip') {
     })
   })
 }
+let getWeather = function (location = 'ip', clazz = '') {
+  // 待更新：按城市id保持天气数据到一个list，每次到list取数据
+  // 如果存在该数据并且最后更新时间间隔不大于10分钟
+  // 则返回该数据，不请求网络
+  return new Promise(function (resolve, reject) {
+    Promise.all([api.now(location), api.daily(location), api.life(location)])
+    .then(([now, daily, life]) => {
+      // 整合 now, daily, life 数据为 weather
+      daily = daily.daily
+      let today = daily.splice(0, 1)[0]
+      daily.map(d => {
+        d.date = util.formatDate(d.date, 'M/d')
+        return d
+      })
+      let weather = {
+        id: now.location.id, // 城市id
+        name: now.location.name, // 城市名
+        code: now.now.code, // 天气现象代码
+        temperature: now.now.temperature, // 温度
+        text: now.now.text, // 天气现象文字
+        last_update: now.last_update, // 数据更新时间（该城市的本地时间）
+        text_day: today.text_day, // 白天天气现象文字
+        code_day: today.code_day, // 白天天气现象代码
+        text_night: today.text_night, // 晚间天气现象文字
+        code_night: today.code_night, // 晚间天气现象代码
+        high: today.high, // 当天最高温度
+        low: today.low, // 当天最低温度
+        precip: today.precip, // 降水概率，范围0~100，单位百分比
+        wind_direction: today.wind_direction, // 风向文字
+        wind_direction_degree: today.wind_direction_degree, // 风向角度，范围0~360
+        wind_speed: today.wind_speed, // 风速，单位km/h（当unit=c时）、mph（当unit=f时）
+        wind_scale: today.wind_scale, // 风力等级
+        daily: daily, // 逐日天气预报
+        suggestion: life.suggestion // 生活指数 
+      }
+      console.log(JSON.stringify(weather))
+      if (clazz == 'gps') {
+        weather.id = 'gps'
+        wx.setStorage({
+          key: "gps",
+          data: weather
+        })
+      }
+      wx.setStorage({
+        key: "weather",
+        data: weather
+      })
+      resolve(weather)
+    }).catch(e => {
+      reject(e)
+    })
+  })
+}
 
 let search = `${apiUrl}/location/search.json${apiKey}`
-export let api = {now, daily, life}
+export let api = { now, daily, life, getWeather}

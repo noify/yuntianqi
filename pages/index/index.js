@@ -55,7 +55,7 @@ Page({
         success(res) {
           location = res.data.id
           console.log(location)
-          if (location == 'gps'){
+          if (res.data.tid == 'gps'){
             _this.getLocationWeather()
           } else {
             _this.getWeather(location)
@@ -83,17 +83,9 @@ Page({
       },
     })
   },
-  onPullDownRefresh (options){
+  onPullDownRefresh (){
     let _this = this
-    wx.getStorage({
-      key: 'weather',
-      success(res) {
-        _this.getWeather(res.data.id)
-      },
-      fail(res) {
-        _this.getWeather('ip')
-      } 
-    })
+    _this.getWeather(_this.data.weather.id)
   },
   onShareAppMessage (res){
     let _this = this

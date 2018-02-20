@@ -67,7 +67,7 @@ store.state = {
 store.now = id => {
   return new Promise((resolve, reject) => {
     // bug：chooseLocation修改了last_update，state也会跟着改变
-    console.log(store.state.now)
+    // console.log(store.state.now)
     if (store.state.now[id] && new Date() - new Date(store.state.now[id].last_update) < 20 * 60 * 1000) {
       resolve(store.state.now[id])
     } else {
@@ -75,7 +75,7 @@ store.now = id => {
         url: `${api_config.base_url}/weather/now.json${api_config.key}&location=${id}`,
         success: res => {
           store.state.now[id] = res.data.results[0]
-          console.log(res.data.results[0],'state')
+          // console.log(res.data.results[0],'state')
           resolve(res.data.results[0])
           },
         fail: error => reject(error)
@@ -125,6 +125,7 @@ store.getWeather = id => {
             id: now.location.id, // 城市id
             name: now.location.name, // 城市名
             code: now.now.code, // 天气现象代码
+            icon: `../../images/weather/${now.now.code}.png`,
             temperature: now.now.temperature, // 温度
             text: now.now.text, // 天气现象文字
             last_update: now.last_update, // 数据更新时间（该城市的本地时间）
@@ -142,10 +143,6 @@ store.getWeather = id => {
             daily: daily, // 逐日天气预报
             suggestion: life.suggestion // 生活指数 
           }
-          wx.setStorage({
-            key: "weather",
-            data: weather
-          })
           store.state.weather[id] = weather
           resolve(weather)
         }).catch(e => reject(e))

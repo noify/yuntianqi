@@ -1,5 +1,5 @@
 //index.js
-import util from '../../utils/util.js'
+
 //获取应用实例
 const app = getApp()
 
@@ -25,10 +25,14 @@ Page({
       if (clazz == 'gps'){
         weather.tid = 'gps'
         wx.setStorage({
-          key: "weather",
+          key: "gpsWeather",
           data: weather
         })
       }
+      wx.setStorage({
+        key: "weather",
+        data: weather
+      })
     }).catch(e => {
       _this.getWeather(location)
       console.log(e)
@@ -46,55 +50,49 @@ Page({
     })
   },
   onLoad (options) {
-    wx.showShareMenu({
-      withShareTicket: true
-    })
-    wx.setTopBarText({
-      text: 'hello, world!'
-    })
+    // wx.showShareMenu({
+    //   withShareTicket: true
+    // })
+    // wx.setTopBarText({
+    //   text: 'hello, world!'
+    // })
     let _this = this
-    if (typeof options!== 'undefined' && options.type == 'share'){
-      _this.getWeather(options.location)
-      //_this.setData({name: shareId})
-    } else {
-      wx.getStorage({
-        key: 'weather',
-        success(res) {
-          location = res.data.id
-          console.log(location)
-          if (res.data.tid == 'gps'){
-            _this.getLocationWeather()
-          } else {
-            _this.getWeather(location)
-          }
-        },
-        fail(res) {
+    wx.getStorage({
+      key: 'weather',
+      success(res) {
+        let d = res.data
+        console.log(d)
+        if (res.data.tid == 'gps'){
           _this.getLocationWeather()
+        } else {
+          _this.getWeather(d.id)
         }
-      })
-    }
+      },
+      fail(res) {
+        _this.getLocationWeather()
+      }
+    })
   },
   onShow () {
     let _this = this
     wx.getStorage({
       key: 'chooselocationid',
       success: function(res) {
-        let location = res.data
-        console.log('onShow', location)
-        if (location == 'gps') {
+        let id = res.data
+        if (id == 'gps') {
           _this.getLocationWeather()
         } else {
-          _this.getWeather(location)
+          _this.getWeather(id)
         }
         wx.removeStorage({ key: 'chooselocationid' })
       },
     })
   },
-  onPullDownRefresh (){
+  onPullDownRefresh () {
     let _this = this
     _this.getWeather(_this.data.weather.id)
   },
-  onShareAppMessage (res){
+  onShareAppMessage (res) {
     let _this = this
     let name = _this.data.weather.name
     let location = _this.data.weather.id

@@ -1,5 +1,5 @@
 // pages/share/share.js
-import util from '../../utils/util.js'
+
 //获取应用实例
 var app = getApp()
 

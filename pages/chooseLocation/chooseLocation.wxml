@@ -2,12 +2,12 @@
 <view class="container">
  <view class='item' data-chooseLocationId="gps" bindtap='toIndex'>
   <view class='left'>
-    <text class='time'>{{weather.last_update}}</text>
-    <text class='location'>{{weather.location.name}}</text>
+    <text class='time'>{{weather.last_hours}}</text>
+    <text class='location'>{{weather.name}}</text>
   </view>
   <view class='right'>
-    <text>{{weather.now.temperature}}°</text>    
-    <image src="../../images/weather/{{weather.now.code}}.png" mode="aspectFit"></image> 
+    <text>{{weather.temperature}}°</text>    
+    <image src="{{weather.icon}}" mode="aspectFit"></image> 
   </view>
  </view>
  <view class='item' wx:for="{{list}}" wx:key="*this" wx:for-item='i' id="{{index}}" data-chooselocationid="{{i.location.id}}" bindtap='toIndex' bindlongpress='delLocation'>

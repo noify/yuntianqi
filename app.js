@@ -8,7 +8,7 @@ App({
     // wx.removeStorageSync('weather')
     wx.removeStorageSync('chooselocationid')
 
-    var indexLocationId = wx.getStorageSync('indexLocationId') || 'gps'
+    // var indexLocationId = wx.getStorageSync('indexLocationId') || 'gps'
 
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []

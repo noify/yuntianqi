@@ -43,7 +43,6 @@ page{
 }
 .wind{
   font-size: 30rpx;
-  line-height: 30rpx;
 }
 .share{
   display: line;
@@ -57,7 +56,6 @@ page{
 }
 .chooseLocation{
   font-size: 30rpx;
-  line-height: 30rpx;
 }
 .daily{
   width:100%;
@@ -65,7 +63,7 @@ page{
   flex-direction: column;
   align-items: center;
   padding: 20rpx 0 15rpx 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 .daily-now{
   width: 100%;

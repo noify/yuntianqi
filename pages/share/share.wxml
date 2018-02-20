@@ -3,7 +3,7 @@
   <image mode='aspectFill' src='{{userInfo.avatarUrl}}' class='blur-bg'></image>
   <view class='bg-mask'></view>
   <view class='ta'>
-    <image src="../../images/weather/{{weatherTa.code_day}}.png" mode="aspectFit"></image>
+    <image src="{{weatherTa.icon}}" mode="aspectFit"></image>
     <text>TA({{weatherTa.name}})</text>
   </view>
   <view class='vs'>VS</view>

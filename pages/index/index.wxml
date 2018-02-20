@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="now">
-     <image src="../../images/weather/{{weather.code}}.png" mode="aspectFit"></image> 
+     <image src="{{weather.icon}}" mode="aspectFit"></image> 
     <text class="now-text">{{weather.text}}</text>
     <text class="temperature">{{weather.temperature}}°</text>
     <!-- <text class="last_update">最后更新时间：{{weather.last_update}}</text> -->
@@ -13,7 +13,7 @@
     <view class="daily">
       <view class="daily-now" wx:for="{{weather.daily}}" wx:for-item="i" wx:key="unique">
         <text class="daily-date">{{index == 1 ? '后天' : '明天'}} {{i.date}}</text>
-        <view class="daily-text"><image src="../../images/weather/{{i.code_day}}.png" mode="aspectFit"></image>
+        <view class="daily-text"><image src="{{weather.icon}}" mode="aspectFit"></image>
         <!-- {{i.text_day}} -->
         </view>
         <text class="daily-temperature">{{i.high}}°/{{i.low}}°</text>

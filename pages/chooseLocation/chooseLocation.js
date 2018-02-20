@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    weather: {},
+    weather:{},
     list:[]
   },
 
@@ -16,18 +16,34 @@ Page({
    */
   onLoad: function (options) {
     let _this = this
-    console.log(this.data.list)
+    let weather = wx.getStorageSync('gpsWeather') || {}
+    if(weather.last_update){
+      weather.last_hours = util.formatDate(weather.last_update, 'HH:mm')
+    }
+    _this.setData({
+      weather: weather
+    })
+    console.log('getLocation start')
     wx.getLocation({
       success: res => {
         let id = `${res.latitude}:${res.longitude}`
+        console.log(id)
         app.store.now(id).then(weather => {
-          weather.last_update = util.formatDate(weather.last_update, 'HH:mm')
-          console.log(weather)
+          weather.tid = 'gps'
+          weather.last_hours = util.formatDate(weather.last_update, 'HH:mm')
+          weather.name = weather.location.name
+          weather.code = weather.now.code
+          weather.temperature = weather.now.temperature
+          weather.icon = `../../images/weather/${weather.now.code}.png`
           _this.setData({
             weather: weather
           })
+          console.log(weather)
+          wx.setStorage({
+            key: "gpsWeather",
+            data: weather
+          })
         }).catch(e => {
-          _this.getWeather(id)
           console.log(e)
         })
       },
@@ -39,7 +55,6 @@ Page({
             return app.store.now(d.location.id)
           })).then( r => {
             r.map(d => {
-              console.log(util.formatDate(d.last_update, 'HH:mm'))
               d.last_update = util.formatDate(d.last_update, 'HH:mm')
               return d
             })

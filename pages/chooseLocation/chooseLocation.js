@@ -1,6 +1,7 @@
 // pages/chooseLocation/chooseLocation.js
-import { api } from '../../api'
 import util from '../../utils/util.js'
+const app = getApp()
+
 Page({
   /**
    * 页面的初始数据
@@ -16,13 +17,18 @@ Page({
   onLoad: function (options) {
     let _this = this
     console.log(this.data.list)
-    wx.getStorage({
-      key: 'gps',
-      success: function (res) {
-        let weather = res.data
-        weather.last_update = util.formatDate(weather.last_update, 'HH:mm')
-        _this.setData({
-          weather: weather
+    wx.getLocation({
+      success: res => {
+        let id = `${res.latitude}:${res.longitude}`
+        app.store.now(id).then(weather => {
+          weather.last_update = util.formatDate(weather.last_update, 'HH:mm')
+          console.log(weather)
+          _this.setData({
+            weather: weather
+          })
+        }).catch(e => {
+          _this.getWeather(id)
+          console.log(e)
         })
       },
     })
@@ -30,7 +36,7 @@ Page({
       key: 'locationList',
       success: function(res) {
           Promise.all(res.data.map(d => {
-            return api.now(d.location.id)
+            return app.store.now(d.location.id)
           })).then( r => {
             r.map(d => {
               console.log(util.formatDate(d.last_update, 'HH:mm'))
@@ -97,13 +103,25 @@ Page({
   onShareAppMessage: function () {
   
   },
+  // 获取天气信息
+  getWeather (id) {
+    var _this = this
+    app.store.now(id).then(weather => {
+      _this.setData({
+        weather: weather
+      })
+    }).catch(e => {
+      _this.getWeather(id)
+      console.log(e)
+    })
+  },
   addLocation () {
     let _this = this
     wx.chooseLocation({
       success: function (res) {
         console.log(res)
         let location = `${res.latitude}:${res.longitude}`
-        api.now(location).then(function (d) {
+        app.store.now(location).then(function (d) {
           let list = _this.data.list
           d.last_update = util.formatDate(d.last_update, 'HH:mm')
           list.push(d)

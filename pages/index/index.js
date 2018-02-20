@@ -1,17 +1,17 @@
 //index.js
-import { api } from '../../api'
 import util from '../../utils/util.js'
 //获取应用实例
-var app = getApp()
+const app = getApp()
+
 Page({
   data: {
-    weather:{},
+    weather: {},
   },
   // 获取天气信息
-  getWeather (location = 'ip', clazz) {
+  getWeather (location = 'ip', clazz = '') {
     var _this = this
     wx.showNavigationBarLoading()
-    api.getWeather(location, clazz).then(weather => {
+    app.store.getWeather(location).then(weather => {
       _this.setData({
         weather: weather
       })
@@ -22,6 +22,13 @@ Page({
       wx.setTopBarText({
         text: `${weather.name} ${weather.temperature}°`
       })
+      if (clazz == 'gps'){
+        weather.tid = 'gps'
+        wx.setStorage({
+          key: "weather",
+          data: weather
+        })
+      }
     }).catch(e => {
       _this.getWeather(location)
       console.log(e)

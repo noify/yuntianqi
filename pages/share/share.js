@@ -1,8 +1,8 @@
 // pages/share/share.js
-import { api } from '../../api'
 import util from '../../utils/util.js'
 //获取应用实例
 var app = getApp()
+
 Page({
 
   /**
@@ -120,7 +120,7 @@ Page({
   getWeather(location = 'ip', clazz) {
     var _this = this
     wx.showNavigationBarLoading()
-    api.getWeather(location, clazz).then(weather => {
+    app.store.getWeather(location, clazz).then(weather => {
       if (clazz == 'gps') {
         _this.setData({
           weather: weather

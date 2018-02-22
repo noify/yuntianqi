@@ -25,8 +25,16 @@ Page({
    */
   onLoad: function (options) {
     const _this = this
-    _this.setData({
-      userInfo: app.globalData.userInfo
+    // _this.setData({
+    //   userInfo: app.globalData.userInfo
+    // })
+    wx.getUserInfo({
+      withCredentials: false,
+      success: function (res) {
+        _this.setData({
+          userInfo: res.userInfo
+        })
+      }
     })
     let cid = typeof options.cid == 'undefined' ? '北京' : options.cid
     _this.getWeather(cid)

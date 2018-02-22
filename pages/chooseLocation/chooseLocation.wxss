@@ -1,9 +1,12 @@
 /* pages/chooseLocation/chooseLocation.wxss */
 page{
   background: #459df5;
+  height: 100%;
 }
 .container{
   padding: 30rpx;
+  background: linear-gradient(#459df5,#a9d5ff);
+  height: 100%;
 }
 .item{
   width: 100%;
@@ -61,6 +64,5 @@ page{
 .add image{
   height: 50px;
   width: 50px;
-  background: #459df5;
   border-radius: 50%;
 }

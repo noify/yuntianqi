@@ -1,27 +1,30 @@
 <!--index.wxml-->
 <view class="container">
+<scroll-view class='indexScroll' scroll-y='ture'>
   <view class="now">
      <image src="{{weather.icon}}" mode="aspectFit"></image> 
+      <text class="wind">{{weather.wind_scale}}级{{weather.wind_direction}}风</text>
     <text class="now-text">{{weather.text}}</text>
     <text class="temperature">{{weather.temperature}}°</text>
     <!-- <text class="last_update">最后更新时间：{{weather.last_update}}</text> -->
-    <view class='bot'>
-      <button class="share" open-type='share'>分享天气</button>
-      <text class="wind">{{weather.wind_scale}}级{{weather.wind_direction}}风</text>
-      <!-- <text class='chooseLocation' bindtap='chooseLocation'>切换城市</text> -->
-      <image class='locationList' bindtap='chooseLocation' src='../../images/other/list.png'></image>
-    </view>
     <view class="daily">
       <view class="daily-now" wx:for="{{weather.daily}}" wx:for-item="i" wx:key="unique">
         <text class="daily-date">{{index == 1 ? '后天' : '明天'}} {{i.date}}</text>
         <view class="daily-text"><image src="{{weather.icon}}" mode="aspectFit"></image>
         <!-- {{i.text_day}} -->
         </view>
-        <text class="daily-temperature">{{i.high}}°/{{i.low}}°</text>
+        <text class="daily-temperature">{{i.high}}° / {{i.low}}°</text>
       </view>
     </view>
   </view>
-  <view class='suggestion-wrap'>
+  <view scroll-y='ture' class='suggestion-wrap' bindscroll="scroll">
+    <view class='tips'>今天：现在天气{{weather.text_day}}。最高气温{{weather.high}}°。今晚天气{{weather.text_night}}，最低气温{{weather.low}}°。</view>
     <suggestion suggestion="{{weather.suggestion}}"></suggestion>
+  </view>
+</scroll-view>
+  <view class='bar'>
+    <button class="share" open-type='share'><image src='../../images/other/share.png'></image></button>
+    <!-- <text class='chooseLocation' bindtap='chooseLocation'>切换城市</text> -->
+    <image class='locationList' bindtap='chooseLocation' src='../../images/other/list.png'></image>
   </view>
 </view>

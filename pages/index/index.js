@@ -122,5 +122,8 @@ Page({
     wx.navigateTo({
       url: '../chooseLocation/chooseLocation'
     })
+  },
+  scroll: function (e) {
+    console.log(e.detail.scrollTop)
   }
 })

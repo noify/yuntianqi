@@ -5,7 +5,7 @@ page{
 }
 .now{
   display: flex;
-  background: #459df5;
+  background: linear-gradient(#459df5,#72b9ff);
   flex-direction: column;
   align-items: center;
   color: #fff;
@@ -13,7 +13,8 @@ page{
   padding: 10rpx 30rpx;
   padding-top: 40px; 
   box-sizing: border-box;
-  height: 650rpx;
+  height: 600rpx;
+  box-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
 }
 .now >image{
   width: 150rpx;
@@ -25,12 +26,12 @@ page{
 .now-text{
   text-align: center;
   font-size: 20px;
-  padding: 15rpx 0;
   text-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
 }
 .temperature{
   font-size: 150rpx;
   font-weight: bold;
+  padding-top: 30rpx;
   padding-bottom: 60rpx;
   text-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
 }
@@ -39,44 +40,32 @@ page{
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  padding-bottom: 10rpx; 
-  height: 80rpx;
+  padding-top: 10rpx; 
+  height: 100rpx;
   align-items: center;
 }
-.share{
-  display: inline-block;
-  padding: 10rpx;
-  background: orange;
-  font-size: 30rpx;
-  line-height: 30rpx;
-  height: 50rpx;
-  border: none;
-  color: white;
-  margin: 0;
-}
+
 .chooseLocation, .wind,.last_update{
   font-size: 30rpx;
 }
-.locationList{
-  width: 50rpx;
-  height: 50rpx;
+.wind{
+  position: absolute;
+  right: 50rpx;
+  top: 30rpx;
 }
 .daily{
   width:100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 20rpx 0 15rpx 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  height: 150rpx;
+  height: 200rpx;
 }
 .daily-now{
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  padding: 5rpx 0;
-  height: 60rpx;
+  height: 100rpx;
 }
 .daily-text{
   position: relative;
@@ -93,4 +82,49 @@ page{
   height: calc(100% - 650rpx);
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+.suggestion-wrap .tips{
+  font-size: 35rpx;
+  padding: 30rpx;
+  border-bottom: 1px solid rgba(150, 150, 150, 0.3); 
+  margin-bottom: 30rpx;
+}
+.bar{
+  background: linear-gradient(#72b9ff,#72b9ff);
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  border-top: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: -1px 0px 2px rgba(150, 150, 150, 0.3);
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10rpx 30rpx;
+}
+.bar .share{
+  display: block;
+  background: transparent;
+  width: 70rpx;
+  height: 70rpx;
+  padding: 0;
+  margin: 0;
+}
+.bar .share::after{
+  border: none;
+}
+.bar .share image{
+  width: 65rpx;
+  height: 65rpx;
+}
+.bar .locationList{
+  width: 75rpx;
+  height: 75rpx;
+}
+
+.indexScroll{
+ padding-bottom: 100rpx; 
 }

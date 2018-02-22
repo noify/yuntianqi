@@ -121,7 +121,7 @@ store.life = id => {
 }
 
 store.getWeather = id => {
-  // 待更新：按城市id保持天气数据到一个list，每次到list取数据
+  // 按城市id保持天气数据到一个list，每次到list取数据
   // 如果存在该数据并且最后更新时间间隔不大于10分钟
   // 则返回该数据，不请求网络
   return new Promise(function (resolve, reject) {

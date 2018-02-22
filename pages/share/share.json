@@ -4,5 +4,8 @@
   "navigationBarTitleText": "分享天气",
   "backgroundColor": "#459df5",
   "backgroundTextStyle": "light",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "suggestion": "/components/suggestion/suggestion"
+  }
 }

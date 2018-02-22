@@ -4,5 +4,8 @@
   "navigationBarTitleText": "云天气",
   "backgroundColor": "#459df5",
   "backgroundTextStyle": "light",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "suggestion": "/components/suggestion/suggestion"
+  }
 }

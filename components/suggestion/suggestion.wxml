@@ -1,0 +1,37 @@
+<!--components/suggestion.wxml-->
+<view class='suggestion-wrap'>
+  <view class="suggestion">
+    <slot></slot>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/car_washing.png" mode="aspectFit"></image>
+      <text class="suggestion-name">洗车指数</text>
+      <text class="suggestion-brief">{{suggestion.car_washing.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/dressing.png" mode="aspectFit"></image>
+      <text class="suggestion-name">穿衣指数</text>
+      <text class="suggestion-brief">{{suggestion.dressing.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/flu.png" mode="aspectFit"></image>
+      <text class="suggestion-name">感冒指数</text>
+      <text class="suggestion-brief">{{suggestion.flu.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/sport.png" mode="aspectFit"></image>
+      <text class="suggestion-name">运动指数</text>
+      <text class="suggestion-brief">{{suggestion.sport.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/travel.png" mode="aspectFit"></image>
+      <text class="suggestion-name">旅游指数</text>
+      <text class="suggestion-brief">{{suggestion.travel.brief}}</text>
+    </view>
+    <view class="suggestion-item">
+      <image src="../../images/suggestion/uv.png" mode="aspectFit"></image>
+      <text class="suggestion-name">紫外线指数</text>
+      <text class="suggestion-brief">{{suggestion.uv.brief}}</text>
+    </view>
+  </view>
+</view>
+  

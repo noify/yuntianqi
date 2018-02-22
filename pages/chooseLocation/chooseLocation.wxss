@@ -28,7 +28,7 @@ page{
 .location{
   font-size: 21px;
 }
-.item image{
+.item .right image{
   width: 36px;
   height: 36px;
   margin-left: 15px;

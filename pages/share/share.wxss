@@ -1,6 +1,7 @@
 /* pages/share/share.wxss */
 page{
   background: #f2f2f2;
+  height: 100%;
 }
 .top{
   display: flex;
@@ -9,6 +10,7 @@ page{
   color: white;
   padding: 50rpx 0;
   width: 750rpx;
+  height: 180rpx;
   position: relative;
 }
 .top .ta, .top .vs, .top .me{
@@ -58,8 +60,9 @@ page{
 .cen{
   display: flex;
   flex-direction: column;
-  padding: 30rpx 0 20rpx 0;
+  padding: 30rpx 0 10rpx 0;
   width: 750rpx;
+  height: 300rpx;
   background: white;
 }
 .item{
@@ -137,4 +140,9 @@ page{
 }
 .cen .item.precip .me .chan,.cen .item.precip .ta .chan{
   background: #fba093;
+}
+.suggestion-wrap{
+  height: calc(100% - 620rpx);
+  display: flex;
+  align-items: center;
 }

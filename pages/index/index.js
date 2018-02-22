@@ -5,7 +5,16 @@ const app = getApp()
 
 Page({
   data: {
-    weather: {},
+    weather: {
+      text: '晴',
+      temperature: 0,
+      suggestion:{},
+      wind_scale: 2,
+      daily:[
+        { icon: 1, high: 0, low: 0 },
+        { icon: 1, high: 0, low: 0 }
+      ]
+    },
   },
   // 获取天气信息
   getWeather (location = 'ip', clazz = '') {
@@ -61,7 +70,9 @@ Page({
       key: 'weather',
       success(res) {
         let d = res.data
-        console.log(d)
+        _this.setData({
+          weather: d
+        })
         if (res.data.tid == 'gps'){
           _this.getLocationWeather()
         } else {

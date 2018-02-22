@@ -47,4 +47,6 @@
     </view>
   </view>
 </view>
-<suggestion suggestion="{{weather.suggestion}}"></suggestion>
+<view class='suggestion-wrap'>
+  <suggestion suggestion="{{weather.suggestion}}"></suggestion>
+</view>

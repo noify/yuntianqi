@@ -1,6 +1,7 @@
 /**index.wxss**/
 page{
   background: #f2f2f2;
+  height: 100%;
 }
 .now{
   display: flex;
@@ -12,6 +13,7 @@ page{
   padding: 10rpx 30rpx;
   padding-top: 40px; 
   box-sizing: border-box;
+  height: 650rpx;
 }
 .now >image{
   width: 150rpx;
@@ -22,8 +24,8 @@ page{
 }
 .now-text{
   text-align: center;
-  font-size: 18px;
-  padding-bottom: 10rpx;
+  font-size: 20px;
+  padding: 15rpx 0;
   text-shadow: 1px 0px 2px rgba(150, 150, 150, 0.3);
 }
 .temperature{
@@ -38,23 +40,21 @@ page{
   justify-content: space-between;
   font-size: 12px;
   padding-bottom: 10rpx; 
-}
-.last_update{
-}
-.wind{
-  font-size: 30rpx;
+  height: 80rpx;
+  align-items: center;
 }
 .share{
-  display: line;
+  display: inline-block;
   padding: 10rpx;
   background: orange;
   font-size: 30rpx;
   line-height: 30rpx;
+  height: 50rpx;
   border: none;
   color: white;
   margin: 0;
 }
-.chooseLocation{
+.chooseLocation, .wind,.last_update{
   font-size: 30rpx;
 }
 .locationList{
@@ -65,9 +65,10 @@ page{
   width:100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   padding: 20rpx 0 15rpx 0;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
+  height: 150rpx;
 }
 .daily-now{
   width: 100%;
@@ -75,6 +76,7 @@ page{
   justify-content: space-between;
   font-size: 14px;
   padding: 5rpx 0;
+  height: 60rpx;
 }
 .daily-text{
   position: relative;
@@ -87,6 +89,8 @@ page{
   top: 0;
   left: 2px;
 }
-.suggestion{
-  height: calc(100% - 100rpx);
+.suggestion-wrap{
+  height: calc(100% - 650rpx);
+  display: flex;
+  align-items: center;
 }

@@ -74,8 +74,12 @@ store.now = id => {
       wx.request({
         url: `${api_config.base_url}/weather/now.json${api_config.key}&location=${id}`,
         success: res => {
+          console.log(res, 'now')
+          if (res.statusCode == 403){
+            console.log(res.data.status)
+            return false
+          }
           store.state.now[id] = res.data.results[0]
-          // console.log(res.data.results[0],'state')
           resolve(res.data.results[0])
           },
         fail: error => reject(error)
@@ -88,7 +92,13 @@ store.daily = id => {
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${api_config.base_url}/weather/daily.json${api_config.key}&location=${id}&start=-1&days=5`,
-      success: res => resolve(res.data.results[0]),
+      success: res => {
+        if (res.statusCode == 403) {
+          console.log(res.data.status)
+          return false
+        }
+        resolve(res.data.results[0])
+      },
       fail: error =>reject(error)
     })
   })
@@ -98,7 +108,13 @@ store.life = id => {
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${api_config.base_url}/life/suggestion.json${api_config.key}&location=${id}`,
-      success: res => resolve(res.data.results[0]),
+      success: res => {
+        if (res.statusCode == 403) {
+          console.log(res.data.status)
+          return false
+        }
+        resolve(res.data.results[0])
+      },
       fail: error =>reject(error)
     })
   })

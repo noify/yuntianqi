@@ -187,13 +187,8 @@ Page({
     })
   },
   toIndex(e) {
-    let _this = this
-    let chooselocationid = e.currentTarget.dataset.chooselocationid
-    console.log('toIndex', chooselocationid)
-    wx.setStorage({
-      key: 'chooselocationid',
-      data: chooselocationid,
-    })
+    const _this = this
+    app.globalData.chooselocationid = e.currentTarget.dataset.chooselocationid
     wx.navigateBack({
       url: `../index/index`
     })

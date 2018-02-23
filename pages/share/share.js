@@ -25,17 +25,13 @@ Page({
    */
   onLoad: function (options) {
     const _this = this
+    // 该行代码可能运行的比app.js里面的onLaunch中的getUserInfo()稍快一些，导致拿不到数据
     // _this.setData({
     //   userInfo: app.globalData.userInfo
     // })
-    wx.getUserInfo({
-      withCredentials: false,
-      success: function (res) {
-        _this.setData({
-          userInfo: res.userInfo
-        })
-      }
-    })
+    app.getUserInfo(info => _this.setData({
+      userInfo: info
+    }))
     let cid = typeof options.cid == 'undefined' ? '北京' : options.cid
     _this.getWeather(cid)
     _this.getLocationWeather()

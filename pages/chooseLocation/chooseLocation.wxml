@@ -1,8 +1,8 @@
 <!--pages/chooseLocation/chooseLocation.wxml-->
-<view class="container">
+<scroll-view class="container" scroll-y='true'>
  <view class='item' data-chooseLocationId="gps" bindtap='toIndex'>
   <view class='left'>
-    <text class='time'>{{weather.last_hours}}</text>
+    <view class='time'>{{weather.last_hours}} <image class='gps' src='../../images/other/gps-b.png'></image></view>
     <text class='location'>{{weather.name}}</text>
   </view>
   <view class='right'>
@@ -24,4 +24,4 @@
   <text class='tips'>长按删除城市</text>
   <view class='add' bindtap='addLocation'><image src="../../images/other/add.png" mode="aspectFit"></image></view>
  </view>
-</view>
+</scroll-view>

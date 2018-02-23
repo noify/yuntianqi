@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-<scroll-view class='indexScroll' scroll-y='ture'>
+<scroll-view class='indexScroll' scroll-y='true'>
   <view class="now">
-     <image src="{{weather.icon}}" mode="aspectFit"></image> 
-      <text class="wind">{{weather.wind_scale}}级{{weather.wind_direction}}风</text>
+    <image src="{{weather.icon}}" mode="aspectFit"></image> 
+    <view class="wind"><image class='gps' hidden='{{weather.tid !== "gps"}}' src='../../images/other/gps.png'></image>{{weather.wind_scale}}级{{weather.wind_direction}}风</view>
     <text class="now-text">{{weather.text}}</text>
     <text class="temperature">{{weather.temperature}}°</text>
     <!-- <text class="last_update">最后更新时间：{{weather.last_update}}</text> -->

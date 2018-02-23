@@ -21,9 +21,6 @@ Page({
     var _this = this
     wx.showNavigationBarLoading()
     app.store.getWeather(location).then(weather => {
-      _this.setData({
-        weather: weather
-      })
       // 设置标题
       wx.setNavigationBarTitle({
         title: weather.name
@@ -38,6 +35,9 @@ Page({
           data: weather
         })
       }
+      _this.setData({
+        weather: weather
+      })
       wx.setStorage({
         key: "weather",
         data: weather
@@ -77,6 +77,10 @@ Page({
           _this.getLocationWeather()
         } else {
           _this.getWeather(d.id)
+          // 未能考虑前期版本流传下来的数据，会导致bug
+          if (d.id == 'gps') {
+            _this.getWeather(d.name)
+          }
         }
       },
       fail(res) {
@@ -85,19 +89,16 @@ Page({
     })
   },
   onShow () {
-    let _this = this
-    wx.getStorage({
-      key: 'chooselocationid',
-      success: function(res) {
-        let id = res.data
-        if (id == 'gps') {
-          _this.getLocationWeather()
-        } else {
-          _this.getWeather(id)
-        }
-        wx.removeStorage({ key: 'chooselocationid' })
-      },
-    })
+    const _this = this
+    const id = app.globalData.chooselocationid
+    if (id){
+      if (id == 'gps') {
+        _this.getLocationWeather()
+      } else {
+        _this.getWeather(id)
+      }
+      app.globalData.chooselocationid = null
+    }
   },
   onPullDownRefresh () {
     let _this = this

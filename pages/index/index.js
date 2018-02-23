@@ -102,7 +102,27 @@ Page({
   },
   onPullDownRefresh () {
     let _this = this
-    _this.getWeather(_this.data.weather.id)
+    wx.getStorage({
+      key: 'weather',
+      success(res) {
+        let d = res.data
+        _this.setData({
+          weather: d
+        })
+        if (res.data.tid == 'gps') {
+          _this.getWeather(_this.data.weather.id, 'gps')
+        } else {
+          _this.getWeather(_this.data.weather.id)
+          // 未能考虑前期版本流传下来的数据，会导致bug
+          if (d.id == 'gps') {
+            _this.getWeather(d.name)
+          }
+        }
+      },
+      fail(res) {
+        _this.getLocationWeather()
+      }
+    })
   },
   onShareAppMessage (res) {
     let _this = this

@@ -18,7 +18,7 @@
     </view>
   </view>
   <view scroll-y='ture' class='suggestion-wrap' bindscroll="scroll">
-    <view class='tips'>今天：现在天气{{weather.text_day}}。最高气温{{weather.high}}°。今晚天气{{weather.text_night}}，最低气温{{weather.low}}°。</view>
+    <view class='tips'>今天：现在天气{{weather.text_day}}。最高气温 {{weather.high}}°。今晚天气{{weather.text_night}}，最低气温 {{weather.low}}°。</view>
     <suggestion suggestion="{{weather.suggestion}}"></suggestion>
   </view>
 </scroll-view>
